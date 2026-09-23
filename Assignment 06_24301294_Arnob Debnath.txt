@@ -1,0 +1,249 @@
+//Task 01
+
+public class Product{
+  private String AR;//product name
+  private double AD;//price 
+  private int AB;//Quantity of items
+  public Product(){//constructor with no peremeter 
+    this.AR=" Unknown";
+    this.AD=0.0;
+    this.AB=0;
+  }
+  public Product(String ar,double ad){//constructor with 2 peremeter 
+    this.AR=ar;
+    this.AD=ad;
+  }
+  public void displayInfo(){//method for showing information
+    System.out.println("Product Name:"+AR);
+    System.out.println("Price"+AD);
+    if(AB!=0){
+      System.out.println("Quantity:"+AB);
+    }
+    else{
+    }
+  }
+  public void setQuantity(int ab){//setter method for quantity
+    this.AB=ab;
+  }
+  public void displayInfo(boolean AG){//overloading method for showing information
+    System.out.println("Product Name:"+AR);
+    System.out.println("Price"+AD);
+    if(AG=true){
+      System.out.println("Quantity:"+AB);
+    }
+    else{
+    }
+  }
+  public void setPrice(double ad){//setter method for price
+    this.AD=ad;
+  }
+  public double getPrice(){//getter method for price
+    return AD;
+  }
+  public int getQuantity(){//getter method for quantity
+    return AB;
+  }
+}
+
+//Task 02
+public class Passenger{
+  public static int no_of_passenger=0;
+  public static double  total_fare=0;
+  public String AR;//Name of passenger
+  public double AD;//distance
+  public double AG;//weight of bags
+  public double AF;//fare of a particular passenger
+  public Passenger(String ar,double ad){//counstructor with 2 peremeter 
+    this.AR=ar;
+    this.AD=ad;
+    this.AG=0;
+    no_of_passenger++;
+   }
+  public void storeBaggageWeight(double ag){//method for storing bag weight
+    this.AG=ag;
+   }
+  public void passengerDetails(){//method for showing passenger details
+    AF=(AD*20)+(AG*10);
+    total_fare+=AF;
+    System.out.println("Name"+AR);
+    System.out.println("Fare"+AF);
+  }
+}
+
+//Task 03
+public class Book{
+  public static int total_books_sold=0;
+  public static double total_revenue=0;
+  public String AR;//Name of book
+  public double AD;//Discount percentage
+  public double AF;//1st price 
+  public double AL;//price after discount 
+  public Book(String ar,double ad){//constructor with 2 peremeter
+    this.AR=ar;
+    this.AD=ad/100;//percentage converting into decimal
+    total_books_sold++;
+    this.AF=150;//initial price 150
+    calculatePrice();
+   }
+  public void calculatePrice(){//method for calculating price after discount
+    this.AL=AF-(AF*AD);
+    total_revenue+=AF;
+  }
+  public void bookDetails(){//method for showing book information
+    System.out.println("Title:"+AR);
+    System.out.println("Price after discount"+AL);
+  }
+}
+
+//Task 04
+
+public class Circle{
+  public static int count=0;//counting circle 
+  private double AR;//Radius of a circle 
+  public Circle(double ar){//coustructor with one peremeter
+    this.AR=ar;
+    count++;
+  }
+  public double area(){//method for calculating area
+    double AM=Math.PI*AR*AR;
+    return AM;
+  }
+  public void setRadius(double ar){//setter method for radius
+    this.AR=ar;
+  }
+  public double getRadius(){//getter method for radius
+    return AR;
+  }
+}
+
+//TAsk 05
+public class Borrower{
+ public static int book_count[] = {3, 3, 3};
+ public static String book_name[] = {"Pather Panchali","Durgesh Nandini", "Anandmath"};
+ public String AR;//name of books
+ public String[] AD;//array string for storing borroowed books
+ public int AC;//borrowed books count
+ public Borrower(String ar){//construct with one peremeter
+   this.AR=ar;
+   this.AD=new String[15];//supporst one particular person can borrow 15 books
+   this.AC=0;
+ }
+ public void borrowBook(String ar){//method for counting borrowing bookings 
+   for(int DG=0;DG<book_name.length;DG++){
+     if(book_name[DG].equals(ar)){
+       if(book_count[DG]>0){
+         book_count[DG]--;
+         AD[AC++]=ar;
+       }
+       else{
+         System.out.println("This book is not available");
+       }
+     }
+   }
+ }
+ public void borrowerDetails(){//printing information about borrowed books
+   System.out.println("Name"+AR);
+   System.out.println("Books Borrowed");
+   for(int AK=0;AK<AC;AK++){
+     System.out.println(AD[AK]);
+   }
+ }
+ public static void bookStatus(){//static method for showing information about available books
+   System.out.println("Available Books:");
+   for(int AZ=0;AZ<book_name.length;AZ++){
+     System.out.println(book_name[AZ]+book_count[AZ]);
+   }
+ }
+ public static int remainingBooks(String aj){//static method for showing remaining books information 
+   for(int AX=0;AX<book_name.length;AX++){
+     if(book_name[AX].equals(aj)){
+      return book_count[AX];
+   }
+   }  
+  return 0;
+ }
+ }
+
+//Task 06
+
+//Task 07
+
+public class Student{
+  public static int AR=0;//total students
+  public static int AD=0;//students in cse dept
+  public static int AB=0;//students in bba dept
+  public static int AF=0;//ID
+  public String AM;//name of students 
+  public double AC;//cgpa of students 
+  public String AQ;//dept of student
+  public Student(String am,double ac){//constructor with 2 peremeter
+    this.AF=AF++;
+    this.AM=am;
+    this.AC=ac;
+    this.AQ="CSE";
+    AR++;
+    AD++;
+  }
+  public Student(String am,double ac,String aq){//constructor with 3 peremeter
+    this.AF=AF++;
+    this.AM=am;
+    this.AC=ac;
+    this.AQ=aq;
+    AR++;
+    if(aq.equals("CSE")){
+      AD++;
+    }
+    else{
+      AB++;
+    }
+  }
+  public void individualDetail(){//method for printing individual student's details
+    System.out.println("Name:"+AM);
+    System.out.println("CGPA:"+AC);
+    System.out.println("Department:"+AQ);
+  }
+  public static void printDetails(){//method for printing student class whole details
+    System.out.println("Total Students:"+AR);
+    System.out.println("CSE Students"+AD);
+    System.out.println("Other Depertment Students"+AB);
+  }
+}
+
+//Task 08
+
+public class  Player{
+  public static int total=0;//total player numbers
+  public static String[]AD= new String[11];//String array to collect player names
+  public static int AC;//counting player in a team
+  public String AM;//name of the player
+  public String AN;//name of the country
+  public int AE;//jersey number
+  public Player(String am,String an,int ae){//constructor with 3 peremeter 
+    if(total<11){
+      this.AM=am;
+      this.AN=an;
+      this.AE=ae;
+      AD[AC++]=am;
+      this.total++;
+    }
+    else{
+      System.out.println("Cannot add");
+    }
+  }
+  public String player_detail(){//method for showing indiviual player 
+    return "Player Name:"+AM+" "+
+           "Jersey Number:"+AE+" "+
+           "Courntry:"+AN;
+  }
+  public static void info(){//method for showing total players 
+    System.out.println("Total number of players:"+total);
+    System.out.println("Player enlisted so far:");
+    for(int AS=0;AS<AC;AS++){
+      System.out.println(AD[AS]);
+    }
+  }
+}
+
+
+
+

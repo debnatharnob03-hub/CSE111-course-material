@@ -1,0 +1,105 @@
+//Task 01)
+a)
+public class UniversityTester{
+  public static void main(String[]args){
+    University AR= new University();//Object1 Creation
+    University DE= new University();//Object2 Creation
+    System.out.println(AR);//Print Location of object 1-University@65aefc0a 
+    System.out.println(DE);//Print Location of object 2-University@5b9dc76c 
+  }
+}
+
+>>not same location.
+
+b)
+public class UniversityTester{
+  public static void main(String[]args){
+    University AR= new University();//Object1 Creation
+    University DE= new University();//Object2 Creation
+    System.out.println(AR.name);//initial object 1 instance variable value
+    System.out.println(DE.name);//initial object 2 instance variable value
+    System.out.println(AR.country);//initial object 1 instance variable value
+    System.out.println(DE.country);//initial object 2 instance variable value
+    AR.name="Imperial College London";//after changing the value of instance variable of object 1
+    AR.country="England";//after changing the value of instance variable of object 1
+    DE.name="Brac University";//after changing the value of instance variable of object 2
+    DE.country="Bangladesh";//after changing the value of instance variable of object 2
+    System.out.println(AR.name);
+    System.out.println(DE.name);
+    System.out.println(AR.country);
+    System.out.println(DE.country);
+    System.out.println(AR);//Print Location of object 1-University@65aefc0a 
+    System.out.println(DE);//Print Location of object 2-University@5b9dc76c 
+  }
+}
+
+//Task 02)
+public class Student{
+    public String name="Default";//Initial Instance variable value 
+    public int id=0;//Initial Instance variable value
+}
+
+//Task 03)
+
+public class CSECourse{
+  public String courseName = "Programming Language II";//Initial Instance variable value
+  public String courseCode ="CSE111";//Initial instance variable value
+  public int credit= 3;//Initial instance variable value
+}
+
+//Task 04)
+
+public class ImaginaryNumber{
+  public int realPart=0;//Initial instance variable value
+  public int imaginaryPart=0;//Initial instance variable value
+  
+  public void printNumber(){//Creating method
+    System.out.println(realPart+"+"+imaginaryPart+"i");
+  }
+}
+
+//Task 05)
+
+public class Course{
+  public String AR;//Initial Instance Variable1
+  public String DP;//Initial Instance Variable2
+  public int AD;//Initial Instance Variable3
+  
+  public void updateDetails(String DE,String DB, int DR){//creating method1
+    AR=DE;//put method1 value in instance Variable1
+    DP=DB;//put method2 value in instance Variable2
+    AD=DR;//put method3 value in instance Variable3
+  }
+  public void displayCourse(){//creating method2
+    System.out.println("Course Name:"+AR);//Showing output1
+    System.out.println("Course Code:"+DP);//Showing output2
+    System.out.println("Course Credit:"+AD);//Showing output3
+  }
+}
+
+//Task 06
+
+public class Assignment{
+  public int tasks=0;//Initial Instance Variable1
+  public String difficulty=null;//Initial Instance Variable2
+  public boolean submission=false;//Initial Instance Variable3
+  
+  public void printDetails(){//Creating Method1
+    System.out.println("Number of tasks:" +tasks);
+    System.out.println("Difficulty level:" +difficulty); 
+    System.out.println("Submission required:" +submission);
+  }
+  public String makeOptional(){//Creating Method2
+    
+    if(submission=false){//boolean condition checking
+      return "Submission is already not required";
+    }
+    else{
+      return "Assignment will not require submission";
+    }
+  }
+}
+
+//Task 07
+
+

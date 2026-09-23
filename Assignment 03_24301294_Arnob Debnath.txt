@@ -1,0 +1,244 @@
+//Task 01
+public class BankAccount{
+  public int AR=0;//bank account no
+  public String DB="Not Set";//bank account type
+  public void setInfo(int AD,String DR){//method for input information
+    AR=AD;
+    DB=DR;
+    System.out.println("Account information updated!");
+  }
+  public String printDetails(){
+    return"Account No:"+AR+
+          "Type:"+DB;
+  }
+}
+
+//Task 02
+public class Shape{
+  public String AR;//VAriable for name of the shape
+  public double AD;//Varibale for area
+  
+  public void setParameters(String ab,double am){//method for circle area 
+    if(ab.equals("Circle")){//condition for checking circle 
+      this.AR=ab;
+      this.AD=Math.PI*Math.pow(am,2);
+    }
+  }
+  public void setParameters(String ab,int am, int an){//method for triangle area
+    if(ab.equals("Triangle")){//condition for checking triangle
+      this.AR=ab;
+      this.AD=0.5*am*an;
+    }
+  }
+  public void setParameters(String AB,double AM, double AN){//method for rectangle
+    if(AB.equals("Rectangle")){//condition for checking rectangle
+      this.AR=AB;
+      this.AD=AM*AN;
+    }
+  }
+  public String details(){
+    return "Shape Name:"+AR+
+           "Area:"+AD;
+  }
+}
+
+//Task 03
+public class Shelf{
+  public int capacity=0;//capacity of self 
+  public int DB=0;//number of books added
+  public int AD=0;//number of books
+  public void showDetails(){//method for showing total capacity and number of books
+    System.out.println(" Shelf capacity: "+capacity);
+    System.out.println("  Number of books:"+AD);
+  }
+  public void addBooks(int db){//method for adding books
+    DB=db;
+    if(capacity==0){//condition for checking book capacity
+      System.out.println("Zero capacity. Cannot add books.");
+    }
+    else if(0<AD+DB && AD+DB<capacity){
+      AD+=DB;
+      System.out.println(DB+"books added to shelf");
+    }
+    else {
+      System.out.println("Exceeds capacity");
+    }
+  }
+}
+
+//Task 04
+public class Library{
+  public String[]AR;//name of books 
+  public int AD=0;//capacity
+  public int DB=0;//total books added
+  public void setBookCapacity(int FB){//method for setting book capacity 
+    AD=FB;//capacity added
+    AR=new String[FB];//name of books array initialized 
+  }
+  public void addBook(String EF){//method for adding book names
+    if(DB<AD){//condition for checking total books and capacity
+      for(int CB=DB;CB<AD;CB++){
+        AR[CB]=EF;
+      }
+      DB++;
+      System.out.println("Book '"+EF+"' added to the library");
+    }
+    else{
+      System.out.println(" Maximum capacity exceeds. You can't add");
+    }
+  }
+  public void printDetail(){//method for printing details
+    System.out.println("Maximum Capacity:"+AD);
+    System.out.println("Total Books:"+DB);
+    System.out.println("Book list:");
+    for(int f=0;f<DB;f++){
+      System.out.println(AR[f]);
+    }
+  }
+}
+
+//Task 05
+
+public class TaxiLagbe{
+  public String AR="no taxi number input";//Taxi number 
+  public String AD="no city input";
+  public String[] AF=new String[4];//name of passengers
+  public int FD=0;//total fare
+  public int FE=0;//total passenger
+  public int AB=4;//max passenger
+  public void storeInfo(String CU,String UB){//method for storing taxi number and area name
+    AR=CU;
+    AD=UB;
+    }
+  public void addPassenger(String CB,int DE){//inpur for storing one passenger information
+    if(FE<AB){
+      for(int VB=FE;VB<AB;VB++){
+        AF[VB]=CB;
+      }
+      FE++;
+      FD+=DE;
+      System.out.println("Dear"+CB+"!Welcome to TaxiLagbe");
+    }
+    else{
+      System.out.println("Taxi Full! No more passengers can be added");
+    }
+  }
+  public void addPassenger(String CB01,int DE01,String CB02, int DE02){//input for storing 2 passenger information at a same time
+    if(FE=FE+1 && FE<=AB){
+      addPassenger(CB01,DE01);
+    }
+    else if(FE=FE+2 && FE<=AB){
+      addPassenger(CB01,DE01);
+      addPassenger(CB02,DE02);
+    }
+    else{
+      System.out.println(" Taxi Full! No more passengers can be added");
+    }
+  }
+  public void printDetails(){//method for showing details 
+    System.out.println("Taxi Number:"+AR);
+    System.out.println("This taxi can cover"+AD+"area");
+    System.out.println("Total Passenger"+FE);
+    System.out.println("Passenger Lists:");
+    for(int f=0;f<FE;f++){
+      System.out.println(AF[f]);
+    }
+    System.out.println("Total collected fare: "+FD);
+  }
+}
+
+//Task 6
+
+public class Student{
+  public String AR="Not Set";//Name of the Student
+  public String AD="CSE";//Department
+  public double DB=0.0;//CGPA
+  public int DE=9;//Credits
+  public String AB="Not Set";//Scholarship Status
+  public void updateDetails(String ar,double db,int de){//method for update details for taking  Name, CGPA and Credit
+    AR=ar;
+    DB=db;
+    DE=de;
+  }
+  public void updateDetails(String ar, double db){//method for update details for taking  Name and Credit
+    AR=ar;
+    DB=db;
+  }
+  public void updateDetails(String ar, double db,int de, String ad){//method for update details for taking  Name, CGPA and Credit and Department
+    AR=ar;
+    DB=db;
+    DE=de;
+    AD=ad;
+  }
+  public void checkScholarshipEligibility(){//Method for Checking Scholarship Eligibility
+    if(DB>=3.7 && DE>10){//condition for more than 3.7 cgpa and more than 10 credits
+      AB="Merit based ";
+      System.out.println(AR+"is eligible for Merit based scholarship");
+    }
+    else if(DB>=3.5 && DB<3.7 && DE>10){//condition for more than 3.5 cgpa but less than 3.7 and more than 10 credits
+      AB="Need based ";
+      System.out.println(AR+" is eligible for Need based scholarship");
+    }
+    else{
+      AB="No scholarship";
+       System.out.println(AR+" is not eligible for scholarship");
+    }
+  }
+  public void showDetails(){//Method for Printing Informations
+    System.out.println("Name:"+AR);
+    System.out.println("Department:"+AD);
+    System.out.println("CGPA:"+DB);
+    System.out.println("Credits:"+DE);
+    System.out.println("Scholarship Status:"+AB);
+  }
+}
+
+//Task 07
+public class Cart{
+  public int AR=0;//Number of cart
+  public int AD=3;//maximum number of item added to cart
+  public String[] DD=new String[AD];//String array for names of items
+  public int AF=0;//total items added
+  public int AK=0;//Discount on price item
+  public double[] DM=new String[AD];//Double array for prices of items
+
+//Task 08
+public class Reader{
+  public String AR="New User";//Name of the Reader
+  public int AD=0;//Capacity of reading books
+  public int DD=0;//total books the reader reads
+  public String[] DE= new String [AD];//String array for collecting book names
+  public String createReader(String ar, int ad){//method for taking reader and capacity
+    AR=ar;
+    AD=ad;
+    DE=new String[ad];//fixing books name string array
+    return" A new reader is created!";
+  }
+  public void addBook(String de){//method for adding books name
+    if(DD<AD){
+      for(int CC=DD;CC<AD;CC++){
+        DE[CC]=de;
+      }
+      DD++;
+    }
+    else{
+      System.out.println(" No more capacity");
+    }
+  }
+  public void readerInfo(){//method for showing reader information
+    System.out.println("Name:"+AR);
+    System.out.println("Capacity"+AD);
+    System.out.println("Books:");
+    if(DD==0){//condition if the reader hasn't take any book
+      System.out.println("No books added yet");
+    }
+    else{
+      for(int CH=0;CH<DD;CH++){
+        for(int HC=1;HC<DD;HC++){
+          System.out.println("Books"+HC+":"+DE[CH]);
+        }
+      }
+    }
+  }
+}
+

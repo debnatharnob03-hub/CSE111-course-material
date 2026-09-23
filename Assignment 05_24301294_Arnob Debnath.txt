@@ -1,0 +1,701 @@
+//Task 01
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+}
+}
+//Task 02
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    System.out.println(DA+"created");
+  }
+}
+//Task 03 & Task 4
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+  }
+  public void setasnext(Song nxt){
+    this.NXT=nxt;
+  }
+}
+
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public int DB;//song count
+  public int DO;//numbering of songs
+  public Song DC;//current Song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    this.DB=0;
+    this.DO=1;
+    System.out.println(DA+"created");
+    }
+  public void addSong(Song MN){//method of taking songs
+    if(DD==null){//if there is no 1st song
+      this.DD=MN;
+    }
+    else{
+      this.DC=this.DD;//1st song is the current song
+      while(DC.NXT!=null){//while loop for linking songs 
+        DC=DC.NXT;
+      }
+      DC.setasnext(MN);//set other songs to next songs
+    }
+    DB++;
+    System.out.println(MN.AR+"added to"+DA);
+  }
+  public void info(){//method for showing detail information
+    System.out.println(DA+"has the following songs:");
+    if(DD==null){
+      System.out.println("No songs in"+DA);
+    }
+    else{
+      this.DC=this.DD;
+      while(DC!=null){
+        System.out.println("Song"+DO);
+        System.out.println("Title"+DC.AR);
+        System.out.println("Artist"+DC.AD);
+        System.out.println("Length"+DC.AM+"minutes");
+        DC=DC.NXT;
+        DO++;
+      }
+    }
+  }
+}
+
+//Task 5
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+  }
+  public void setasnext(Song nxt){
+    this.NXT=nxt;
+  }
+}
+
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public int DB;//song count
+  public Song DC;//current Song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    this.DB=0;
+    System.out.println(DA+"created");
+    }
+  public void addSong(Song MN){//method of taking songs
+    if(DD==null){//if there is no 1st song
+      this.DD=MN;
+    }
+    else{
+      this.DC=this.DD;//current song is the head song
+      while(DC.NXT!=null){//while loop for linking songs 
+        DC=DC.NXT;
+      }
+      DC.setasnext(MN);//set other songs to next songs
+    }
+    DB++;
+    System.out.println(MN.AR+"added to"+DA);
+  }
+  public void addSong(Song MN1,int DM){//method with 2 peremeter for taking Song with index
+    if(DM>DB){
+      System.out.print("Cannot added song to index"+DM);
+    }
+    else{ 
+      if(DM==0){
+        MN1.NXT=DD;
+        DD=MN1;
+      }
+      else{
+        this.DC=DD;
+        for(int DW=0;DW<DM-1;DW++){
+          DC=DC.NXT;
+        }
+        MN1.NXT=DC.NXT;
+        DC.NXT=MN1;
+      }
+      DB++;
+      System.out.println(MN1.AR+"added to"+DA);
+    }
+  }
+    
+  public void info(){
+    System.out.println(DA+"has the following songs:");
+    if(DD==null){
+      System.out.println("No songs in"+DA);
+    }
+    else{
+      this.DC=this.DD;
+      int DO=1;//numbering songs serially
+      while(DC!=null){
+        System.out.println("Song"+DO);
+        System.out.println("Title"+DC.AR);
+        System.out.println("Artist"+DC.AD);
+        System.out.println("Length"+DC.AM+"minutes");
+        DC=DC.NXT;
+        DO++;
+      }
+    }
+  }
+}
+
+//Task 06
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+  }
+  public void setasnext(Song nxt){
+    this.NXT=nxt;
+  }
+}
+
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public int DB;//song count
+  public Song DC;//current Song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    this.DB=0;
+    System.out.println(DA+"created");
+    }
+  public void addSong(Song MN){//method of taking songs
+    if(DD==null){//if there is no 1st song
+      this.DD=MN;
+    }
+    else{
+      this.DC=this.DD;//current song is the head song
+      while(DC.NXT!=null){//while loop for linking songs 
+        DC=DC.NXT;
+      }
+      DC.setasnext(MN);//set other songs to next songs
+    }
+    DB++;
+    System.out.println(MN.AR+"added to"+DA);
+  }
+  public void addSong(Song MN1,int DM){//method with 2 peremeter for taking Song with index
+    if(DM>DB){
+      System.out.print("Cannot added song to index"+DM);
+    }
+    else{ 
+      if(DM==0){
+        MN1.NXT=DD;
+        DD=MN1;
+      }
+      else{
+        this.DC=DD;
+        for(int DW=0;DW<DM-1;DW++){
+          DC=DC.NXT;
+        }
+        MN1.NXT=DC.NXT;
+        DC.NXT=MN1;
+      }
+      DB++;
+      System.out.println(MN1.AR+"added to"+DA);
+    }
+  }
+    
+  public void info(){//method for showing details information
+    System.out.println(DA+"has the following songs:");
+    if(DD==null){
+      System.out.println("No songs in"+DA);
+    }
+    else{
+      this.DC=this.DD;
+      int DO=1;//numbering songs serially
+      while(DC!=null){
+        System.out.println("Song"+DO);
+        System.out.println("Title"+DC.AR);
+        System.out.println("Artist"+DC.AD);
+        System.out.println("Length"+DC.AM+"minutes");
+        DC=DC.NXT;
+        DO++;
+      }
+    }
+  }
+  public void playSong(String DU){//method for playing song 
+    this.DC=DD;
+    while(DC!=null){//loop for matching song name
+      if(DC.AR.equals(DU)){//condition for matching song
+        System.out.println("Playing"+DU+"by"+DC.AD);
+        }
+      else{
+      System.out.println(DU+"not found in playlist"+DA);
+      }
+     DC=DC.NXT; 
+    }
+  }
+}
+
+//Task 07
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+  }
+  public void setasnext(Song nxt){
+    this.NXT=nxt;
+  }
+}
+
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public int DB;//song count
+  public Song DC;//current Song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    this.DB=0;
+    System.out.println(DA+"created");
+    }
+  public void addSong(Song MN){//method of taking songs
+    if(DD==null){//if there is no 1st song
+      this.DD=MN;
+    }
+    else{
+      this.DC=this.DD;//current song is the head song
+      while(DC.NXT!=null){//while loop for linking songs 
+        DC=DC.NXT;
+      }
+      DC.setasnext(MN);//set other songs to next songs
+    }
+    DB++;
+    System.out.println(MN.AR+"added to"+DA);
+  }
+  public void addSong(Song MN1,int DM){//method with 2 peremeter for taking Song with index
+    if(DM>DB){
+      System.out.print("Cannot added song to index"+DM);
+    }
+    else{ 
+      if(DM==0){
+        MN1.NXT=DD;
+        DD=MN1;
+      }
+      else{
+        this.DC=DD;
+        for(int DW=0;DW<DM-1;DW++){
+          DC=DC.NXT;
+        }
+        MN1.NXT=DC.NXT;
+        DC.NXT=MN1;
+      }
+      DB++;
+      System.out.println(MN1.AR+"added to"+DA);
+    }
+  }
+    
+  public void info(){
+    System.out.println(DA+"has the following songs:");
+    if(DD==null){
+      System.out.println("No songs in"+DA);
+    }
+    else{
+      this.DC=this.DD;
+      int DO=1;//numbering songs serially
+      while(DC!=null){
+        System.out.println("Song"+DO);
+        System.out.println("Title"+DC.AR);
+        System.out.println("Artist"+DC.AD);
+        System.out.println("Length"+DC.AM+"minutes");
+        DC=DC.NXT;
+        DO++;
+      }
+    }
+  }
+  public void playSong(String DU){//method for playing song 
+    this.DC=DD;
+    while(DC!=null){//loop for matching song name
+      if(DC.AR.equals(DU)){//condition for matching song
+        System.out.println("Playing"+DU+"by"+DC.AD);
+        }
+      else{
+      System.out.println(DU+"not found in playlist"+DA);
+      }
+     DC=DC.NXT; 
+    }
+  }
+  public void playSong(int DY){//method for playing song with serial number
+    if(DY>DB){//condition if the given number in bigger then total songs
+      System.out.println("Song at index"+DY+"not found in"+DA);
+    }
+    else{
+   this.DC=DD;
+   for(int DQ=0;DQ<DY;DQ++){
+     DC=DC.NXT;
+   }
+   System.out.println("playing"+DC.AR+"by"+DC.AD);
+  }
+}
+
+//Task 08
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+  }
+  public void setasnext(Song nxt){
+    this.NXT=nxt;
+  }
+}
+
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public int DB;//song count
+  public Song DC;//current Song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    this.DB=0;
+    System.out.println(DA+"created");
+    }
+  public void addSong(Song MN){//method of taking songs
+    if(DD==null){//if there is no 1st song
+      this.DD=MN;
+    }
+    else{
+      this.DC=this.DD;//current song is the head song
+      while(DC.NXT!=null){//while loop for linking songs 
+        DC=DC.NXT;
+      }
+      DC.setasnext(MN);//set other songs to next songs
+    }
+    DB++;
+    System.out.println(MN.AR+"added to"+DA);
+  }
+  public void addSong(Song MN1,int DM){//method with 2 peremeter for taking Song with index
+    if(DM>DB){
+      System.out.print("Cannot added song to index"+DM);
+    }
+    else{ 
+      if(DM==0){
+        MN1.NXT=DD;
+        DD=MN1;
+      }
+      else{
+        this.DC=DD;
+        for(int DW=0;DW<DM-1;DW++){
+          DC=DC.NXT;
+        }
+        MN1.NXT=DC.NXT;
+        DC.NXT=MN1;
+      }
+      DB++;
+      System.out.println(MN1.AR+"added to"+DA);
+    }
+  }
+    
+  public void info(){
+    System.out.println(DA+"has the following songs:");
+    if(DD==null){
+      System.out.println("No songs in"+DA);
+    }
+    else{
+      this.DC=this.DD;
+      int DO=1;//numbering songs serially
+      while(DC!=null){
+        System.out.println("Song"+DO);
+        System.out.println("Title"+DC.AR);
+        System.out.println("Artist"+DC.AD);
+        System.out.println("Length"+DC.AM+"minutes");
+        DC=DC.NXT;
+        DO++;
+      }
+    }
+  }
+  public void playSong(String DU){//method for playing song 
+    this.DC=DD;
+    while(DC!=null){//loop for matching song name
+      if(DC.AR.equals(DU)){//condition for matching song
+        System.out.println("Playing"+DU+"by"+DC.AD);
+        }
+      else{
+      System.out.println(DU+"not found in playlist"+DA);
+      }
+    this.DC=DC.NXT; 
+    }
+  }
+  public void playSong(int DY){//method for playing song with serial number
+    if(DY>DB){//condition if the given number in bigger then total songs
+      System.out.println("Song at index"+DY+"not found in"+DA);
+    }
+    else{
+   this.DC=DD;
+   for(int DQ=0;DQ<DY;DQ++){
+   DC=DC.NXT;
+   }
+   System.out.println("playing"+DC.AR+"by"+DC.AD);
+    }
+  }
+  public void deleteSong(String DV){//method for deleting song
+    if(DD==null){
+      System.out.println(DC.AR+"not found in"+DA);
+    }
+    else if(DD.AR.equals(DV)){
+      DD=DD.NXT;
+      DB--;
+      System.out.println(DC.AR+"deleted from"+DA);
+    }
+    else{
+      this.DC=DD;
+      while((DC.NXT!=null)&&(!DC.NXT.AR.equals(DV))){
+        DC=DC.NXT;
+      }
+      if(DC.NXT==null){
+        System.out.println(DC.AR+"not found in"+DA);
+      }
+      else{
+        DC.NXT=DC.NXT.NXT;
+        DB--;
+        System.out.println(DC.AR+"deleted from"+DA);
+      }
+    }
+  }
+}  
+
+//Task 09
+ public int totalSong(){//method for showing total songs
+    return DB;
+
+//task 10
+public class Song{
+  public String AR;//Song Name
+  public String AD;//Artist Name
+  public int AM;//time duration of the song
+  public Song NXT;//Next Song
+  public Song(String ar,String ad,int am){//constructor with 3 peremeter which takes name of the song, artist and duration of the song
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.NXT=null;
+  }
+  public void songInfo(){//method for showing info about song
+    System.out.println("Title:"+AR);
+    System.out.println("Artist"+AD);
+    System.out.println("Length"+AM+"minutes");
+  }
+  public void setasnext(Song nxt){
+    this.NXT=nxt;
+  }
+}
+
+public class Playlist{
+  public String DA;//Name of the playlist
+  public Song DD;//1st song
+  public int DB;//song count
+  public Song DC;//current Song
+  public Playlist(String da){//contructer with one peremeter that takes name of the playlist
+    this.DA=da;
+    this.DD=null;
+    this.DB=0;
+    System.out.println(DA+"created");
+    }
+  public void addSong(Song MN){//method of taking songs
+    if(DD==null){//if there is no 1st song
+      this.DD=MN;
+    }
+    else{
+      this.DC=this.DD;//current song is the head song
+      while(DC.NXT!=null){//while loop for linking songs 
+        DC=DC.NXT;
+      }
+      DC.setasnext(MN);//set other songs to next songs
+    }
+    DB++;
+    System.out.println(MN.AR+"added to"+DA);
+  }
+  public void addSong(Song MN1,int DM){//method with 2 peremeter for taking Song with index
+    if(DM>DB){
+      System.out.print("Cannot added song to index"+DM);
+    }
+    else{ 
+      if(DM==0){
+        MN1.NXT=DD;
+        DD=MN1;
+      }
+      else{
+        this.DC=DD;
+        for(int DW=0;DW<DM-1;DW++){
+          DC=DC.NXT;
+        }
+        MN1.NXT=DC.NXT;
+        DC.NXT=MN1;
+      }
+      DB++;
+      System.out.println(MN1.AR+"added to"+DA);
+    }
+  }
+    
+  public void info(){
+    System.out.println(DA+"has the following songs:");
+    if(DD==null){
+      System.out.println("No songs in"+DA);
+    }
+    else{
+      this.DC=this.DD;
+      int DO=1;//numbering songs serially
+      while(DC!=null){
+        System.out.println("Song"+DO);
+        System.out.println("Title"+DC.AR);
+        System.out.println("Artist"+DC.AD);
+        System.out.println("Length"+DC.AM+"minutes");
+        DC=DC.NXT;
+        DO++;
+      }
+    }
+  }
+  public void playSong(String DU){//method for playing song 
+    this.DC=DD;
+    while(DC!=null){//loop for matching song name
+      if(DC.AR.equals(DU)){//condition for matching song
+        System.out.println("Playing"+DU+"by"+DC.AD);
+        }
+      else{
+      System.out.println(DU+"not found in playlist"+DA);
+      }
+    this.DC=DC.NXT; 
+    }
+  }
+  public void playSong(int DY){//method for playing song with serial number
+    if(DY>DB){//condition if the given number in bigger then total songs
+      System.out.println("Song at index"+DY+"not found in"+DA);
+    }
+    else{
+   this.DC=DD;
+   for(int DQ=0;DQ<DY;DQ++){
+   DC=DC.NXT;
+   }
+   System.out.println("playing"+DC.AR+"by"+DC.AD);
+    }
+  }
+  public void deleteSong(String DV){//method for deleting song
+    if(DD==null){
+      System.out.println(DC.AR+"not found in"+DA);
+    }
+    else if(DD.AR.equals(DV)){
+      DD=DD.NXT;
+      DB--;
+      System.out.println(DC.AR+"deleted from"+DA);
+    }
+    else{
+      this.DC=DD;
+      while((DC.NXT!=null)&&(!DC.NXT.AR.equals(DV))){
+        DC=DC.NXT;
+      }
+      if(DC.NXT==null){
+        System.out.println(DC.AR+"not found in"+DA);
+      }
+      else{
+        DC.NXT=DC.NXT.NXT;
+        DB--;
+        System.out.println(DC.AR+"deleted from"+DA);
+      }
+    }
+  }
+  public int totalSong(){//method for showing total songs
+    return DB;
+  }
+  public void merge(Playlist LK){//method for merging 2 playlists
+    if(this.DD==null){
+      this.DD=LK.DD;
+    }
+    else{
+      this.DC=DD;
+      while(DC.NXT!=null){
+        DC=DC.NXT;
+      }
+      DC.NXT=LK.DD;
+    }
+    System.out.println("merge completed!");
+  }
+}  
+
+
+
+
+
+
+
+
+
+

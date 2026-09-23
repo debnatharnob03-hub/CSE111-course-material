@@ -1,0 +1,185 @@
+//Task 01
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    int AR=0;//Initial Sum
+    int DB=0;//Initial Max
+    int AD=0;//Initial Min
+    int DP=0;//Initial Count
+    for(int AB=1;AB<=10;AB++){//For loop for taking input
+      int AC=sc.nextInt();//Input
+    
+      if(AC>0&&AC%2!=0){//if condition for positive odd integers
+        AR+=AC;//SUM of values;
+        DP++;//count increment;
+        if(AB==1){//for searching max
+          DB=AC;
+        }
+        else{
+          if(AC>DB){
+            DB=AC;
+          }
+        }
+        if(AB==1){//for searching min
+          AD=AC;
+        }
+        else{
+          if(AC<AD){
+            AD=AC;
+          }
+        }
+      }
+    }
+      if(DP>=1){
+        double CD=AR/DP;//average
+        System.out.println("Sum="+AR);
+        System.out.println("Max="+DB);
+        System.out.println("Min="+AD);
+        System.out.println("Average="+CD);
+      }
+      
+    }
+  }
+
+//Task 02
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+   int AR=sc.nextInt();//starting input
+   int DB=sc.nextInt();//ending input
+    int AC=0;//prime count
+   for(int AD=AR;AD<=DB;AD++){//for loop for the elements in the range
+     for(int DP=2;DP*DP<AR;DP++){//loop for identifying prime
+       if(AR%DP==0){//if condition for prime
+         continue;
+       }
+       else{
+         AC++;//prime count increment 
+         
+       }
+     }
+   }
+   System.out.println( "There are"+ AC+" prime numbers between"+AR+"and"+DB);
+  }
+}
+
+//Task 03
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+   String AR= sc.nextLine();//1st String
+   String DB= sc.nextLine();// 2nd String
+   String AD= AR+ DB;//Contrast of 2 Strings
+   int DP=0;//Counting Characters Value
+   for(int DD=0;DD<AD.length();DD++){//loop for each character
+     char SH=AD.charAt(DD);//each character of the string 
+     if((SH>=97&&SH<=122)||(SH>=65&&SH<90)){//condition for the range of the words
+       DP+= (int)SH;//count
+     }
+   }
+   System.out.println(DP);
+  }
+}
+
+//Task 04
+
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+  String AR=sc.nextLine();//input for string
+    for(int DB=0; DB<AR.length();DB++){//loop for selecting each character
+      char SH=AR.charAt(DB);//each character of the string
+      if(SH=='a'){//condition for a
+      System.out.print('z');
+      }
+      else{
+        System.out.print((char)(SH-1));//condition for others character
+      }
+    }
+  }
+}
+
+//Task 5
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+  int AR= sc.nextInt();//Input for size of array
+  int DB[]=new int[AR];//Allocating storage for a new array
+    for(int DP=0;DP<AR;DP++){
+    DB[DP]=sc.nextInt();//inputs for array
+  }
+  int AD[]= new int[AR];//allocating storage for a new reverse array
+  for(int AC=AR-1;AC>=0;AC--){
+    AD[AC]=DB[DB.length-1-AC];//reverse inputs for the new reverse array
+  }
+  for(int DD=0;DD<AD.length;DD++){//loop for printing elements of array
+    System.out.println(AD[DD]);
+  }
+  }
+}
+
+//Task 6
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+  int AR=sc.nextInt();//Input for the size of array
+  int DB[]=new int[AR];// allocating storage for a array
+  int DD=0;//initial count
+  for(int DE=0;DE<AR;DE++){//loop for inserting array elements
+    DB[DE]=sc.nextInt();
+  }
+  for(int DC=0;DC<AR;DC++){//outer loop 
+    for(int CD=DC+1;CD<AR;CD++){//inner loop
+      if(DB[DC]==DB[CD]){//condition for checking duplicates
+        DD++;//count increment
+      }
+    }
+     
+ 
+    
+    System.out.println(DB[DC]+"-"+DD+"times");
+      
+    
+  }
+  }
+  }
+
+//Task 7
+import java.util.Scanner;
+public class lab1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+  int AR= sc.nextInt();//Input size of array
+  double DB[]= new double[AR];//storage for array
+ 
+  int SH=0;//intial count
+  for(int DD=0;DD<AR;DD++){//loop for input array variable
+    DB[DD]=sc.nextDouble();
+  }
+  for(int DC=0;DC<AR;DC++){//outer loop
+    for(int CD=DC+1;CD<AR;CD++){
+      if(DB[DC]==DB[CD]){// conditionfor checking duplicates
+        SH++;
+      }
+    }
+  }
+  double AD[]=new double[AR-SH];//storage for new array
+  for(int DC=0;DC<AR;DC++){//outer loop
+    for(int CD=DC+1;CD<AR;CD++){//inner loop
+      if(DB[DC]!=DB[CD]){//conditionfor checking duplicates
+        AD[DC]=DB[CD];//elements of new array
+      }
+    }
+  }
+  for(int MN=0;MN<AD.length;MN++){
+    System.out.print(AD[MN]+",");
+  }
+  System.out.println( "Removedelements:"+SH);
+  }
+}

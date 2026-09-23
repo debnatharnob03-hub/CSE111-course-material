@@ -1,0 +1,262 @@
+//Task 01
+
+public class BBAStudent extends Student{//child class
+  public BBAStudent(){//constructor without peremeter 
+    super.setName("default");//calling set method from parent class
+    super.setDepartment("BBA");//calling set method from parent class
+  }
+  public BBAStudent(String AR){
+    super.setName(AR);//calling set method from parent class
+    super.setDepartment("BBA");//calling set method from parent class
+  }
+}
+
+//Task 02
+public class CheckingAccount extends  Account{//child class
+  public static int count=0;//static variable for counting 
+  public CheckingAccount(){//constructor with no peremeter
+    super(0.0);
+    CheckingAccount.count++;
+  }
+  public CheckingAccount(double AR){//constructor with one peremeter
+    super(AR);
+    CheckingAccount.count++;
+  }
+}
+
+//Task 03
+ 
+public class Dog extends Animal{//child Dog class extending from Animal parent class
+  public String AR;//Instance variable for dog breed name
+  public Dog(String AM,int AG, String AC, String ar){//Dog class constructor with 4 peremeter
+    super(AM,AG,AC);
+    this.AR=ar;
+  }
+  public String info(){//method for printing information about
+    String AT=super.info();
+    String AQ="Breed"+this.AR;
+    return AT+AQ;
+  }
+  public void makeSound(){//method for showing sound
+    System.out.println(color+"color"+name+"is barking");
+  }
+}
+
+public class Cat extends Animal{//child Cat class extending from Animal parent class
+  public String AR;//Instance variable for Cat breed name
+  public Cat(String AM,int AG, String AC, String ar){//Cat class constructor with 4 peremeter
+    super(AM,AG,AC);
+    this.AR=ar;
+  }
+  public String info(){//method for printing information about Cat
+    String AT=super.info();
+    String AQ="Breed:"+this.AR;
+    return AT+AQ;
+  }
+  public void makeSound(){//method for showing sound
+    System.out.println(color+"color"+name+"is barking");
+  }
+}
+
+//Task 04
+
+public class  Vehicle2010 extends Vehicle{//child Vehical2010 class
+  public void moveLowerLeft(){//method for moving down+left
+    super.moveDown();
+    super.moveLeft();
+  }
+  public void moveLowerRight(){//method for moving down+right
+    super.moveDown();
+    super.moveRight();
+  }
+  public void moveUpperRight(){//method for moving up+right
+    super.moveUp();
+    super.moveRight();
+  }
+  public void moveUpperLeft(){//method for moving up+left
+    super.moveUp();
+    super.moveLeft();
+  }
+}
+
+//Task 05
+public class ComplexNumber extends RealNumber{//child class ComplexNumber inherits from Class Real Number
+  public double AR=1.0;//Instance Variable for Imaginary number
+  public ComplexNumber(){//Constructor with no peremeter 
+    super(1.0);
+  }
+  public ComplexNumber(double ae,double ar){//Constructor with 2 peremeter for real and imaginary number
+    super(ae);
+    this.AR=ar;
+  }
+  public String toString(){//toString method 
+    return "RealPart:"+realValue+"\n"+"ImaginaryPart:"+AR+"\n";
+  }
+}
+ 
+//Task 06
+public class Developer extends  Employee{//Child class Developer inheriting from parent class Employee
+  public String AL;//Instance variable for programming language
+  double PK=0;//Final Salary
+  public Developer(String am,double ar,int aw,String al){
+    super(am,ar,aw);
+    this.AL=al;
+  }
+  public void calculateSalary(){//method for calculating salary
+    if(AL.equals("Java")){
+      PK=getBaseSalary()+700;
+      setBaseSalary(PK);
+     }
+    else{
+      PK=getBaseSalary();
+      System.out.println("No additional salary added");
+    }
+  }
+  public void displayInfo(){//method for showing information
+    super.displayInfo();
+    System.out.println("Language"+AL);
+    System.out.println("Final Salary"+PK);
+  }
+}
+
+public class Manager extends Employee{//Child class Manager inheriting from parent class Employee
+  public double AB;//Instance varibale for Bonus
+  public double AF=0;//Final salary
+  public Manager(String AM,double AR,int AW,double ab){//constructor with 4 peremeter
+    super(AM,AR,AW);
+    this.AB=ab;
+  }
+  public void calculateSalary(){//method for calculating salary 
+    double AJ=AB/100;//bonus in decimal
+    if(getHoursWorked()>40){
+      double AT=getBaseSalary()*AJ;//bonus percentage on salary
+      AF=getBaseSalary()+AT;//final salary after adding bonus salary
+      }
+    else{
+      System.out.println("No bonus added");
+    }
+    }
+  public void requestIncrement(double an){//method for checking and adding increment 
+    double PO=0;
+    if(getHoursWorked()<80){
+      System.out.println("Increment Denied");
+    }
+    else if(getHoursWorked()>80 && getHoursWorked()<100){
+      System.out.println("$"+(an/2)+" Increment approved");
+      PO=getBaseSalary()+an/2;
+      setBaseSalary(PO);
+      AF=AF+PO;
+    }
+    else{
+     System.out.println("$"+an+" Increment approved"); 
+      PO=getBaseSalary()+an;
+      setBaseSalary(PO);
+      AF=AF+PO;
+    }
+  }
+  public void displayInfo(){//method for showing information
+    super.displayInfo();
+    System.out.println("Bonus:"+AB+"%");
+    System.out.println("Final Salary"+ AF);
+  }
+}
+
+//Task 07
+public class CinemexTicket extends MovieTicket{//child class CinemexTicket inheriting from family class MovieTicket
+  private static int AR=0;// ticket count
+  public String AG;// Movie Genre
+  public String AD;//ticket ID
+  public String AT;//type of the seat
+  public double AF;//final price
+  public boolean AP;//boolean variable for checking if the payment is done or not
+  public CinemexTicket(String an,String as,String ag,String ad){//constructor with 4 peremeters 
+    super(an,ad,as,0.0);
+      this.AG=ag;
+      this.AT="Regular";
+      this.AP=false;
+      this.AD=getMovie()+"-"+AT.charAt(0)+"-"+AR;
+      AR++;
+    }
+  
+  public CinemexTicket(String an,String as,String ag,String ad,String at){//constructor with 5 peremeters adding type of seat
+    super(an,ad,as,0.0);
+      this.AG=ag;
+      this.AT="Regular";
+      this.AP=false;
+      this.AD=getMovie()+"-"+AT.charAt(0)+"-"+AR;
+      this.AT=at;
+      AR++;
+    }
+  public static int getTotalTickets(){//getter method for total tickets number
+    return AR;
+  }
+  public void calculateTicketPrice(){//method for calculating tickets 
+  }
+  public String confirmPayment(){//method for confirming payment 
+    if(AP=true){
+      return"Ticket price is already paid!";
+    }
+    else{
+      AP=true;
+      return"Payment Successful";
+    }
+  }
+  public String toString(){//toString method overriding 
+    return"Ticket ID"+AD+"\n"+super.toString()+"\n"+"Genre"+AG+"Seat type"+AT+"\n"+"Price"+AF+"\n"+"Status";
+  }
+}
+
+//Task 08
+
+public class KKTea extends Tea{//Child class KKTea inheriting from parent class Tea
+  public int AW;//Weight 
+  public int AT;//Teabag
+  public static int ATS=0;//static variable for total number of sold regular tea
+  public KKTea(int ap, int at){//constructor with 2 peremeter
+    super(" KK Regular Tea",ap);
+    this.AT=at;
+    this.AW=at*2;
+  }
+  public void productDetail(){//method for printing tea details
+    super.productDetail();
+    System.out.println("Weight"+AW+"Tea Bags:"+AT);
+  }
+  
+  public static void updateSoldStatusRegular(KKTea ar){//static method for updating sell status for regular KK Tea
+    if(ar.status=true){
+      ar.status=true;
+      ATS++;
+    }
+    else{
+    }
+  }
+  public static void totalSales(){//static method for showing information about total sales
+    int fk=ATS+KKFlavouredTea.AQ;
+    System.out.println("Total Sales:"+fk);
+    System.out.println("KK Regular Tea"+ATS);
+    System.out.println("KK Flavour Tea"+KKFlavouredTea.AQ);
+  }
+}
+
+public class KKFlavouredTea extends KKTea{//child class KKFlavouredTea inheriting from parent class KKTea
+  public String AH;//NAme of the flavour of the tea
+  public static int AQ;//static variable for total number sold flavour tea
+  public KKFlavouredTea(String ah,int ap,int at){//constructor with 3 peremeter
+    super(ap,at);
+    this.AH=ah;
+    name="KK"+ah+"Tea";
+  }
+  public void productDetail(){//method overriding for printing tea details
+    super.productDetail();
+    System.out.println("Flavour:"+AH);
+  }
+  public static void updateSoldStatusFlavoured(KKFlavouredTea am){//static method for updating sell status for flavour KK Tea
+    if(am.status=true){
+      am.status=true;
+      AQ++;
+    }
+    else{
+    }
+  }
+}
+

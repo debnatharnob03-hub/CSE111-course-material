@@ -1,0 +1,398 @@
+//Task 01
+
+public class Student{
+  public String name;//instance variable name
+  public String prog;//instance variable prog
+  public Student(String AR,String AD){//parameterized constructor    
+    this.name=AR;
+    this.prog=AD;
+  }
+  public void updateName(String AB){//method for student name
+    this.name=AB;
+  }
+  public void updateProgram(String BA){//method for course name
+    this.prog=BA;
+  }
+  public String accessProgram(){//method for returning course name
+    return this.prog;
+  }
+}
+
+//Task 02
+
+public class Toy{
+  public String name;//instance variable for name of toy
+  public int AD;//instance variable for price of toy
+  public Toy(String ar,int ad){//constructor
+    name=ar;
+    AD=ad;
+    System.out.println("A new toy has been made!");
+  }
+  public void updatePrice(int ak){//method for price update
+    AD=ak;
+  }
+  public void updateName(String mf){//method for name update
+    name=mf;
+  }
+  public void showPrice(){//method for showing price
+    System.out.println("price:"+AD);
+  }
+}
+
+//Task 03
+
+import java.lang.Math;
+public class Shape2D{
+  public double AR;//area
+  public int AK;//length
+  public String AD;//Area type
+  public Shape2D(){//contructor without parameter
+    this.AK=5;
+    this.AD="Square";
+    this.AR=AK*AK;
+    System.out.println(" A"+AD+" has been created with length:"+ AK);
+  }
+  public Shape2D(int am, int an){//constructor with 2 parameters which is a rectangle
+    this.AD=" Rectangle";
+    this.AR=am*an;
+    System.out.println(" A"+AD+" has been created with length:"+ am+"and breadth:"+an);
+  }
+  public Shape2D(int am, int an, String AF){//constructor with 3 parameters whics is either rectangle or triangle
+    if(AF.equals("Triangle")){
+      this.AD="Triangle";
+      this.AR=0.5*am*an;
+      System.out.println(" A"+AD+" has been created with height:"+ am+"and base:"+an);
+  }
+    else{
+    this.AD=" Rectangle";
+    this.AR=am*an;
+    System.out.println(" A"+AD+" has been created with length:"+ am+"and breadth:"+an);
+    }
+  }
+  public Shape2D(int am, int an, int mo){//contructor with 3 parameters which is a triangle
+    this.AD="Triangle";
+    double xm=(am+an+mo)/2;
+    double mx=xm*(xm-am)*(xm-an)*(xm-mo);
+    this.AR=Math.sqrt(mx);
+    System.out.println("A Triangle has been created with the following sides:"+am+","+an+","+mo);
+  }
+  public void area(){
+    System.out.println("The area of the" +AD+"is:"+AR);
+  }
+                         
+}
+
+//Task 04
+
+public class Student{
+  public int AR;//Student ID
+  public double AB;//CGPA
+  public String[]AD;//List for courses
+  public int AK;//maximum course
+  public int DB;//total course
+  public boolean SB=false;//boolean for checking cgpa is provided
+  public Student(int ar){//constructor with 1 parameter for ID
+    this.AR=ar;
+    System.out.println("A student with ID"+ar+"has been created.");
+    this.SB=false;
+  }
+  public Student(int ar,double ab){//constructor with 2 parameter for ID and cgpa
+    this.AR=ar;
+    this.AB=ab;
+    this.SB=true;
+    if(ab<3.0){
+     this.AK=3;
+      this.AD=new String[AK];
+    }
+    else{
+      this.AK=4;
+      this.AD=new String[AK];
+      }
+    }
+    
+  public void storeCG(double ab){//method for storing cgpa
+    this.SB=true;
+    this.AB=ab;
+    if(ab<3.0){
+      this.AK=3;
+      this.AD=new String[AK];
+    }
+    else{
+      this.AK=4;
+      this.AD=new String[AK];
+    }
+  }
+  public void storeID(int ar){//method for storing ID
+    this.AR=ar;
+  }
+  public void addCourse(String ad){//method for adding one course
+    if(SB=false){
+      System.out.println("Failed to add"+ad+"Set CG first");
+    }
+    if(AK==3){
+    if(DB<AK){
+      for(int FT=0;FT<AK;FT++){
+        AD[FT]=ad;
+      }
+      DB++;
+    }
+    else{
+      System.out.println("CG is low. Can't add more than 3 courses.");
+    }
+    }
+    else{
+      if(DB<AK){
+        for(int FJ=0;FJ<AK;FJ++){
+          AD[FJ]=ad;
+        }
+        DB++;
+      }
+      else{
+        System.out.println(" Can't add more than 4 courses.");
+      }
+    }
+  }
+    public void addCourse(String[]ad){//method for storing multiple courses
+      addCourse(ad);
+    }
+    public void removeAllCourse(){//method for removing all courses
+      this.DB=0;
+      for(int FG=AK;FG>DB;FG--){
+        AD[AK]=null;
+      }
+      DB--;
+    }
+    public void showAdvisee(){//method for showing advised courses
+      System.out.println("Student ID:"+AR);
+      System.out.println("CGPA:"+AB);
+      System.out.println("Added courses are:");
+      for(int FA=0;FA<DB;FA++){
+        System.out.print(AD[FA]);
+        System.out.print(",");
+      }
+    }
+  }
+
+//Task 05
+
+public class Triangle{
+  public int AR1;//side1
+  public int AR2;//side2
+  public int AR3;//side3
+  public int AD;//perimeter
+  public void updateSides(int ar1,int ar2,int ar3){//method for taking side measurement
+    this.AR1=ar1;
+    this.AR2=ar2;
+    this.AR3=ar3;
+    this.AD=AR1+AR2+AR3;
+  }
+  public void triangleDetails(){//method for showing side and peremeter
+   System.out.println(" Three sides of the triangle are:"+AR1+","+AR2+","+AR3);
+   System.out.println("Perimeter"+AD);
+  }
+  public String printTriangleType(){//method for showing triangle type
+    if(AR1==AR2&&AR1==AR3){
+      return "This is an Equilateral Triangle.";
+    }
+    else if(((AR1==AR2)&&(AR1!=AR3))||((AR2==AR3)&&(AR2!=AR1))||((AR3==AR1)&&(AR3!=AR2))){
+      return "This is an Isosceles Triangle.";
+    }
+    else{
+      return"This is an Scalene Triangle.";
+    }
+  }
+
+  public void compareTrinagles(Triangle MN){//method for comparing sides and peremeters between 2 triangle objects
+    if(this==MN){
+      System.out.println("These two triangle objects have the same address.");
+    }
+    else if((this.AR1==MN.AR1)&&(this.AR2==MN.AR2)&&(this.AR3==MN.AR3)){
+      System.out.println("Addresses are different but the sides of the triangles are equal.");
+    }
+    else if(this.AD==MN.AD){
+      System.out.println("Only the perimeter of both triangles is equal.");
+    }
+    else{
+      System.out.println("Addresses, length of the sides and perimeter all are different.");
+    }
+  }
+}
+
+//Task 06
+public class Teacher{
+  public String AB;//Name of teacher
+  public String AG;//Initial ar teacher's name
+  public String[] AD=new String[3];//initialization of string array for course name
+  public int GB=0;//total number of courses
+  public Teacher(String ab, String ag){//contructor of 2 paremeters for taking name and initial
+    this.AB=ab;
+    this.AG=ag;
+    System.out.println(" A new teacher has been created");
+  }
+  public void addCourse(Course MG){//method for adding course
+    if(GB<3){
+    AD[GB]=MG.AR;
+    GB++;
+    }
+    else {
+      System.out.println("Not more then 3 course");
+    }
+  }
+  public void printDetail(){//method for printing details
+    System.out.println("Name:"+AB);
+    System.out.println("Initial:"+AG);
+    System.out.println("List of courses:");
+    for(int LI=0;LI<3;LI++){
+      System.out.println(AD[LI]);
+    }
+  }
+}
+public class Course{
+  public String AR;//Name of course
+  public Course(String ar){
+    this.AR=ar;
+  }
+}
+
+//Task 07
+
+public class BracuStudent{
+  public String AR;//Name of student
+  public String AN;//Name of student's location
+  public boolean AK;//
+  public BracuStudent(String ar,String an){//contructor with 2 peremeters for name and location
+    this.AR=ar;
+    this.AN=an;
+    this.AK=false;
+  }
+  public void getPass(){//method for checking pass
+    this.AK=true;
+  }
+  public void updateHome(String na){//method for updating student's location
+    this.AN=na;
+  }
+  public void showDetails(){//method for printing information about student
+    System.out.println("Student Name"+AR);
+    System.out.println("Lives in"+AN);
+    if(AK=false){
+    System.out.println("Have Buss Pass?false");
+    }
+    else{
+    System.out.println("Have Buss Pass?true");
+    }
+  }
+}
+ 
+public class BracuBus{
+  public String BR;//route name
+  public int BN;//maximum passengers
+  public int BM;//passenger count
+  public String[]BA;//String for taking Passengers
+  public BracuBus(String br){//contructor with one peremeter for taking bus route
+    this.BR=br;
+    this.BN=2;
+    this.BM=0;
+    this.BA=new String[2];
+  }
+  public BracuBus(String br, int bn){//constructor with two peremeter for taking bus route and max passenger number
+    this.BR=br;
+    this.BN=bn;
+    this.BM=0;
+    this.BA=new String[bn];
+  }
+  public void board(){//method for boarding on bus
+    System.out.println("No Passenger");
+  }
+      
+  public void board(BracuStudent MN){//method for boarding on bus for one passenger 
+    if(MN.AK=false){
+      System.out.println("You don't have a bus pass!");
+    }
+    else if(!MN.AN.equals(BR)){
+      System.out.println("You got on the wrong bus!");
+    }
+    else if(BM>BN){
+      System.out.println("Bus is full!");
+    }
+    else if(BM<BN){
+      BA[BM]=MN.AR;
+      BM++;
+      System.out.println(MN.AR+" boarded the bus");
+    }
+    else{}
+  }
+  public void board(BracuStudent MN1,BracuStudent MN2){//method for boarding on bus for two passenger 
+    board( MN1);
+    board( MN2);
+  }
+  public void showDetails(){//method for showing bus information
+    System.out.println("Bus Route:"+BR);
+    System.out.println("Passengr Count"+BM+"(Max:"+BN+")");
+    System.out.println("Passenger on Board");
+    for(int LK=0;LK<BM;LK++){
+      System.out.print(BA[LK]);
+    }
+  }
+}
+
+
+//Task 8
+
+public class Student{
+  public String AR;//name of student
+  public int AD;//student id
+  public String AM;//student depertment
+  public String email;//student email
+  public String password;//student password
+  public boolean AK;
+  public Student(String ar,int ad,String am){
+    this.AR=ar;
+    this.AD=ad;
+    this.AM=am;
+    this.AK=false;
+    this.email=null;
+    this.password=null;
+    System.out.println("Student object is created");
+  }
+  public void login(String AE, String AP){//method for login into student information with email and password
+    if(this.email.equals(AE) && this.password.equals(AP)){
+      this.AK=true;
+      System.out.println("Login successful");
+    }
+    else{
+      System.out.println("Please login to advise courses!");
+    }
+  }
+
+public class Usis{
+  public int DR;//total courses counted
+  public String[]DB=new String[5];//advised courses
+  public Usis(){//contructor with no paremeter
+    this.DR=o;
+    System.out.println("Usis is ready to use!");
+  }
+  public void login(Student MN){//method for login with email and password from student class
+    MN.login(MN.email,MN.password);
+  }
+  public void advising(Student MN){//method for checking Student advising information
+    if(MN.AK=false){
+      System.out.println("Please login to advise courses!");
+    }
+    else{
+      System.out.println("You haven't selected any courses.");
+    }
+  }
+
+  public void allAdviseeInfo(){//method for printing information
+    System.out.println("Total Advises");
+    for(int LU=0;LU<DR;LU++){
+    System.out.println("Name"+Student.AR);
+    System.out.println("Department:"Student.AM);
+    System.out.println("Advised Courses");
+    }
+  }
+}
+
+
+
+
